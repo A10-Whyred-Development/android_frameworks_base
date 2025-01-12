@@ -13,7 +13,15 @@
         <item>FINGERPRINT:foo/bar/bar:1.0/lorem/ipsum:dolor/sit-amet</item>
         <item>VERSION.RELEASE:1.0</item>
       -->
-    </string-array>
+        <item>PRODUCT:oriole_beta</item>
+        <item>DEVICE:oriole</item>
+        <item>FINGERPRINT:google/oriole_beta/oriole:Baklava/BP21.241121.009/12787338:user/release-keys</item>
+        <item>MANUFACTURER:Google</item>
+        <item>BRAND:google</item>
+        <item>MODEL:Pixel 6</item>
+        <item>VERSION.SECURITY_PATCH:2024-12-05</item>
+        <item>VERSION.DEVICE_INITIAL_SDK_INT:21</item>
+</string-array>
 
     <!-- Keybox configuration for device certification -->
     <string-array name="config_certifiedKeybox" translatable="false">
