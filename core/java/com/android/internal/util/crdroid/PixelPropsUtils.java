@@ -274,9 +274,6 @@ public final class PixelPropsUtils {
             }
         } else {
 
-            if (!SystemProperties.getBoolean(SPOOF_PIXEL_GAMES, false))
-                return;
-
             if (Arrays.asList(packagesToChangeROG6).contains(packageName)) {
                 if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
                 for (Map.Entry<String, Object> prop : propsToChangeROG6.entrySet()) {
@@ -382,22 +379,20 @@ public final class PixelPropsUtils {
     }
 
     private static void spoofBuildGms() {
-        if (!SystemProperties.getBoolean(SPOOF_PIXEL_PI, true))
-            return;
         // Alter build parameters to avoid hardware attestation enforcement
         setPropValue("MANUFACTURER", "Google");
-        setPropValue("MODEL", "Pixel 9 Pro XL");
-        setPropValue("FINGERPRINT", "google/komodo_beta/komodo:15/AP41.240925.009/12534705:user/release-keys");
+        setPropValue("MODEL", "Pixel 9");
+        setPropValue("FINGERPRINT", "google/tokay_beta/tokay:Baklava/BP22.250103.008/12932282:user/release-keys");
         setPropValue("BRAND", "google");
-        setPropValue("PRODUCT", "komodo_beta");
-        setPropValue("DEVICE", "komodo");
-        setPropValue("VERSION.RELEASE", "15");
-        setPropValue("ID", "AP41.240925.009");
-        setPropValue("VERSION.INCREMENTAL", "12534705");
+        setPropValue("PRODUCT", "tokay_beta");
+        setPropValue("DEVICE", "tokay");
+        setPropValue("VERSION.RELEASE", "Baklava");
+        setPropValue("ID", "BP22.250103.008");
+        setPropValue("VERSION.INCREMENTAL", "12932282");
         setPropValue("TYPE", "user");
         setPropValue("TAGS", "release-keys");
-        setPropValue("VERSION.SECURITY_PATCH", "2024-10-05");
-        setPropValue("VERSION.DEVICE_INITIAL_SDK_INT", "32");
+        setPropValue("VERSION.SECURITY_PATCH", "2025-01-05");
+        setPropValue("VERSION.DEVICE_INITIAL_SDK_INT", "34");
     }
 
     private static boolean isCallerSafetyNet() {
@@ -407,8 +402,6 @@ public final class PixelPropsUtils {
     }
 
     public static void onEngineGetCertificateChain() {
-        if (!SystemProperties.getBoolean(SPOOF_PIXEL_PI, true))
-            return;
         // Check stack for SafetyNet or Play Integrity
         if (isCallerSafetyNet() || sIsFinsky) {
             Log.i(TAG, "Blocked key attestation");
